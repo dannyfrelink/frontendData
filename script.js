@@ -22,12 +22,12 @@ function getCountriesData(data) {
                 europe = removeUndefined(europe);
 
                 // SouthAmerican callbacks
-                let southAmerika = filterContinents(data, southAmericanCurrencies);
-                southAmerika = removeUndefined(southAmerika);
+                let southAmerica = filterContinents(data, southAmericanCurrencies);
+                southAmerica = removeUndefined(southAmerica);
 
                 // NorthAmerican callbacks
-                let northAmerika = filterContinents(data, northAmericanCurrencies);
-                northAmerika = removeUndefined(northAmerika);
+                let northAmerica = filterContinents(data, northAmericanCurrencies);
+                northAmerica = removeUndefined(northAmerica);
 
                 // African callbacks
                 let africa = filterContinents(data, africanCurrencies);
@@ -74,10 +74,10 @@ function getCountriesData(data) {
                 const g_yAxis = g.append('g')
                     .attr('class','y axis');
 
-                function update() {
+                function update(continent) {
                     //update the scales
-                    xScale.domain([0, d3.max(europe, (d) => d.value)]);
-                    yScale.domain(europe.map((d) => d.currency));
+                    xScale.domain([0, d3.max(continent, (d) => d.value)]);
+                    yScale.domain(continent.map((d) => d.currency));
                     //render the axis
                     g_xAxis.transition().call(xAxis);
                     g_yAxis.transition().call(yAxis);
@@ -86,7 +86,7 @@ function getCountriesData(data) {
                     // Render the chart with new data
 
                     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
-                    const rect = g.selectAll('rect').data(europe, (d) => d.currency).join(
+                    const rect = g.selectAll('rect').data(continent, (d) => d.currency).join(
                         // ENTER 
                         // new elements
                         (enter) => {
@@ -111,7 +111,40 @@ function getCountriesData(data) {
 
                     rect.select('title').text((d) => d.currency);
                 }
-                update()
+
+                d3.selectAll('#filter').on('click', function() {
+                    // This will be triggered when the user selects or unselects the checkbox
+                    const checked = d3.select(this).property('checked');
+                    if (checked === true) {
+                        // Checkbox was just checked
+                        // Keep only data element whose country is US
+                        if(d3.select(this).node().value === 'europe') {
+                            return filteredData = europe;
+                        }
+                        if(d3.select(this).node().value === 'northAmerica') {
+                            return filteredData = northAmerica;
+                        }
+                        if(d3.select(this).node().value === 'southAmerica') {
+                            return filteredData = southAmerica;
+                        }
+                        if(d3.select(this).node().value === 'africa') {
+                            return filteredData = africa;
+                        }
+                        if(d3.select(this).node().value === 'asia') {
+                            return filteredData = asia;
+                        }
+                        // if(d3.select(this).node().value === 'oceania') {
+                        //     return filteredData = oceania;
+                        // }
+
+                        console.log(filteredData)
+                  
+                        update(filteredData);  // Update the chart with the filtered data
+                    } else {
+                        // Checkbox was just unchecked
+                        update(europe);  // Update the chart with all the data we have
+                    }
+                })
                 
             })
             .catch(err => {
