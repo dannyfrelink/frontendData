@@ -41,7 +41,77 @@ function getCountriesData(data) {
                 let oceania = filterContinents(data, oceanianCurrencies);
                 oceania = removeUndefined(oceania);
 
-                update(europe)
+                // Toevoeging D3
+                const margin = { top: 40, right: 20, bottom: 20, left: 120 };
+                const height = 750 - margin.top - margin.bottom;
+                const width = 1000 - margin.left - margin.right;
+
+                // Creating SVG element with attributes
+                const svg = d3.select('body').append('svg')
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('width', width + margin.left + margin.right)
+
+                // Creating Group element with attributes
+                const g = svg.append('g')
+                    .attr('transform', `translate(${margin.left}, ${margin.top})`)
+
+                const xScale = d3.scaleLinear()
+                    .domain(europe.map(d => d.value))
+                    .range([0, width])
+
+                const yScale = d3.scaleBand()
+                    .domain(europe.map(d => d.currency))
+                    .rangeRound([0, height])
+                    .paddingInner(0.1)
+                
+                const xAxis = d3.axisTop()
+                    .scale(xScale)
+                const g_xAxis = g.append('g')
+                    .attr('class','x axis');
+                
+                const yAxis = d3.axisLeft()
+                    .scale(yScale)
+                const g_yAxis = g.append('g')
+                    .attr('class','y axis');
+
+                function update() {
+                    //update the scales
+                    xScale.domain([0, d3.max(europe, (d) => d.value)]);
+                    yScale.domain(europe.map((d) => d.currency));
+                    //render the axis
+                    g_xAxis.transition().call(xAxis);
+                    g_yAxis.transition().call(yAxis);
+
+
+                    // Render the chart with new data
+
+                    // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
+                    const rect = g.selectAll('rect').data(europe, (d) => d.currency).join(
+                        // ENTER 
+                        // new elements
+                        (enter) => {
+                        const rect_enter = enter.append('rect').attr('x', 0);
+                        rect_enter.append('title');
+                        return rect_enter;
+                        },
+                        // UPDATE
+                        // update existing elements
+                        (update) => update,
+                        // EXIT
+                        // elements that aren't associated with data
+                        (exit) => exit.remove()
+                    );
+
+                    // ENTER + UPDATE
+                    // both old and new elements
+                    rect.transition()
+                        .attr('height', yScale.bandwidth())
+                        .attr('width', (d) => xScale(d.value))
+                        .attr('y', (d) => yScale(d.currency));
+
+                    rect.select('title').text((d) => d.currency);
+                }
+                update()
                 
             })
             .catch(err => {
@@ -84,75 +154,7 @@ function getCountriesData(data) {
 
 
 
-    const margin = { top: 40, right: 20, bottom: 20, left: 120 };
-    const height = 750 - margin.top - margin.bottom;
-    const width = 1000 - margin.left - margin.right;
-
-    // Creating SVG element with attributes
-    const svg = d3.select('body').append('svg')
-        .attr('height', height + margin.top + margin.bottom)
-        .attr('width', width + margin.left + margin.right)
-
-    // Creating Group element with attributes
-    const g = svg.append('g')
-        .attr('transform', `translate(${margin.left}, ${margin.top})`)
-
-    const xScale = d3.scaleLinear()
-        .domain(europe.map(d => d.value))
-        .range([0, width])
-
-    const yScale = d3.scaleBand()
-        .domain(europe.map(d => d.currency))
-        .rangeRound([0, height])
-        .paddingInner(0.1)
     
-    const xAxis = d3.axisTop()
-        .scale(xScale)
-    const g_xAxis = g.append('g')
-        .attr('class','x axis');
-    
-    const yAxis = d3.axisLeft()
-        .scale(yScale)
-    const g_yAxis = g.append('g')
-        .attr('class','y axis');
-
-    function update(europe) {
-        //update the scales
-        xscale.domain([0, d3.max(europe, (d) => d.value)]);
-        yscale.domain(europe.map((d) => d.currency));
-        //render the axis
-        g_xaxis.transition().call(xaxis);
-        g_yaxis.transition().call(yaxis);
-
-
-        // Render the chart with new data
-
-        // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
-        const rect = g.selectAll('rect').data(europe, (d) => d.currency).join(
-            // ENTER 
-            // new elements
-            (enter) => {
-            const rect_enter = enter.append('rect').attr('x', 0);
-            rect_enter.append('title');
-            return rect_enter;
-            },
-            // UPDATE
-            // update existing elements
-            (update) => update,
-            // EXIT
-            // elements that aren't associated with data
-            (exit) => exit.remove()
-        );
-
-        // ENTER + UPDATE
-        // both old and new elements
-        rect.transition()
-            .attr('height', yscale.bandwidth())
-            .attr('width', (d) => xscale(d.value))
-            .attr('y', (d) => yscale(d.currency));
-
-        rect.select('title').text((d) => d.currency);
-    }
 
 
 
