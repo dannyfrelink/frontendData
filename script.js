@@ -112,35 +112,40 @@ function getCountriesData(data) {
                     rect.select('title').text((d) => d.currency);
                 }
 
-                d3.selectAll('#filter').on('click', function() {
+                d3.selectAll('#filter').on('change', function() {
                     // This will be triggered when the user selects or unselects the checkbox
                     const checked = d3.select(this).property('checked');
                     if (checked === true) {
                         // Checkbox was just checked
                         // Keep only data element whose country is US
                         if(d3.select(this).node().value === 'europe') {
-                            return filteredData = europe;
+                            const filteredData = europe;
+                            update(filteredData);
                         }
                         if(d3.select(this).node().value === 'northAmerica') {
-                            return filteredData = northAmerica;
+                            const filteredData = northAmerica;
+                            update(filteredData);
                         }
                         if(d3.select(this).node().value === 'southAmerica') {
-                            return filteredData = southAmerica;
+                            const filteredData = southAmerica;
+                            update(filteredData);
                         }
                         if(d3.select(this).node().value === 'africa') {
-                            return filteredData = africa;
+                            const filteredData = africa;
+                            update(filteredData);
                         }
                         if(d3.select(this).node().value === 'asia') {
-                            return filteredData = asia;
+                            const filteredData = asia;
+                            update(filteredData);
                         }
-                        // if(d3.select(this).node().value === 'oceania') {
-                        //     return filteredData = oceania;
-                        // }
-
-                        console.log(filteredData)
+                        if(d3.select(this).node().value === 'oceania') {
+                            const filteredData = oceania;
+                            update(filteredData);
+                        }
                   
-                        update(filteredData);  // Update the chart with the filtered data
-                    } else {
+                        // update(filteredData);  // Update the chart with the filtered data
+                    } 
+                    else {
                         // Checkbox was just unchecked
                         update(europe);  // Update the chart with all the data we have
                     }
