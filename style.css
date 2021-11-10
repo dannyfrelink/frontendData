@@ -1,0 +1,8 @@
+rect {
+    fill: darkcyan;
+    fill-opacity: 0.8;
+}
+
+rect:hover {
+    fill-opacity: 1;
+}
