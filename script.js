@@ -112,6 +112,8 @@ function getCountriesData(data) {
                     rect.select('title').text((d) => d.currency);
                 }
 
+                update(europe)
+
                 d3.selectAll('#filter').on('change', function() {
                     // This will be triggered when the user selects or unselects the checkbox
                     const checked = d3.select(this).property('checked');
@@ -145,10 +147,10 @@ function getCountriesData(data) {
                   
                         // update(filteredData);  // Update the chart with the filtered data
                     } 
-                    else {
-                        // Checkbox was just unchecked
-                        update(europe);  // Update the chart with all the data we have
-                    }
+                    // else {
+                    //     // Checkbox was just unchecked
+                    //     update(europe);  // Update the chart with all the data we have
+                    // }
                 })
                 
             })
