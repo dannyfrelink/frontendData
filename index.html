@@ -1,22 +1,24 @@
 <html lang="nl">
-    <head>
-		<meta charset="UTF-8">
-		<meta name="author" content="Danny Frelink">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        <script src="http://d3js.org/d3.v7.min.js"></script>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Danny Frelink">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="http://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <strong>Filter on continent:</strong>
+    <form>
+        <label><input type="radio" name="filter" value="EU" id="filter" checked />Europe</label>
+        <label><input type="radio" name="filter" value="NA" id="filter" />North America</label>
+        <label><input type="radio" name="filter" value="SA" id="filter" />South America</label>
+        <label><input type="radio" name="filter" value="AF" id="filter" />Africa</label>
+        <label><input type="radio" name="filter" value="AS" id="filter" />Asia</label>
+        <label><input type="radio" name="filter" value="OC" id="filter" />Oceania</label>
+    </form>
     <script src="script.js"></script>
-    <body>
-        <strong>Filter on continent:</strong>
-        <form>
-            <label><input type="radio" name="filter" value="europe" id="filter" checked />Europe</label>
-            <label><input type="radio" name="filter" value="northAmerica" id="filter" />North America</label>
-            <label><input type="radio" name="filter" value="southAmerica" id="filter" />South America</label>
-            <label><input type="radio" name="filter" value="africa" id="filter" />Africa</label>
-            <label><input type="radio" name="filter" value="asia" id="filter" />Asia</label>
-            <label><input type="radio" name="filter" value="oceania" id="filter" />Oceania</label>
-        </form>
-    </body>
+</body>
 
 </html>
