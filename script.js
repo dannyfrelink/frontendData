@@ -190,42 +190,5 @@ function getCountriesData(data) {
             return entry !== undefined;
         });
     }
-
-
-
-
-    
-
-
-
-    
-
-    // //interactivity
-    // d3.select('#filter-us-only').on('change', function() {
-    // // This will be triggered when the user selects or unselects the checkbox
-    // const checked = d3.select(this).property('checked');
-    // if (checked === true) {
-    //     // Checkbox was just checked
-
-    //     // Keep only data element whose country is US
-    //     const filtered_data = data.filter((d) => d.location.country === 'US');
-
-    //     update(filtered_data);  // Update the chart with the filtered data
-    // } else {
-    //     // Checkbox was just unchecked
-    //     update(data);  // Update the chart with all the data we have
-    // }
-    // });
-
-
-
-
-
-
-
-
-
-
-
 }
 
