@@ -1,3 +1,5 @@
+import { width, height, g } from './basicVars.js';
+
 function defineScales(continent) {
     const scales = {
         xScale: d3.scaleLinear()

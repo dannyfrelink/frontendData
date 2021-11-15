@@ -1,3 +1,5 @@
+import { g } from './basicVars.js';
+
 function updateChart(continent, scales) {
     const { xScale, yScale, g_xAxis, g_yAxis, xAxis, yAxis } = scales;
     // Update the scales

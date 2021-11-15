@@ -1,3 +1,6 @@
+import { defineScales } from './scales.js';
+import { updateChart } from './update.js';
+
 function removeOldAxis() {
     const elX = document.getElementsByClassName('x axis')[0];
     elX.remove();

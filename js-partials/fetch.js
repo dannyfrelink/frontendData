@@ -1,6 +1,9 @@
+import { init } from './init.js';
+import { filterChangeChart } from './filter.js';
+import { cleanUpData } from './cleanData.js';
+
 d3.csv('https://cdn.jsdelivr.net/npm/countries-list@2.6.1/dist/countries.csv')
     .then(getCurrency);
-
 
 function getCurrency(countries) {
     fetch('https://exchangerate-api.p.rapidapi.com/rapid/latest/EUR', {

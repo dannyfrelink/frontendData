@@ -1,3 +1,6 @@
+import { getCurrency } from './fetch.js';
+getCurrency();
+
 // Sort API per continent
 const filterContinents = (data, continent) => {
     return Object.keys(data.rates).map(key => {
