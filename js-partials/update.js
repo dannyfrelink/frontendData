@@ -1,4 +1,6 @@
 import { g } from './basicVars.js';
+import { createTooltip } from './tooltip.js';
+const tooltip = createTooltip();
 
 function updateChart(continent, scales) {
     const { xScale, yScale, g_xAxis, g_yAxis, xAxis, yAxis } = scales;
@@ -16,6 +18,19 @@ function updateChart(continent, scales) {
         .transition()
         .call(yAxis);
 
+    const mouseover = function () {
+        tooltip.style('opacity', 1);
+    };
+    var mousemove = function (d) {
+        tooltip
+            .html(`Exact value: ${d.target.__data__.value}`)
+            .style('left', d3.pointer(this)[0] + 70 + 'px')
+            .style('top', d3.pointer(this)[1] + 'px');
+    };
+    const mouseleave = function (d) {
+        tooltip.style("opacity", 0);
+    };
+
     // Join the data with rectangle elements
     const rect = g.selectAll('rect')
         .data(continent, (d) => d.currency)
@@ -31,7 +46,10 @@ function updateChart(continent, scales) {
             (update) => update,
             // Remove elements (not associated with data)
             (exit) => exit.remove()
-        );
+        )
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave);
 
     // ENTER + UPDATE
     // both old and new elements

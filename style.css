@@ -6,3 +6,10 @@ rect {
 rect:hover {
     fill-opacity: 1;
 }
+
+.tooltip {
+position: absolute;
+text-align: center;
+
+pointer-events: none;
+}
