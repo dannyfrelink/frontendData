@@ -8,8 +8,10 @@ rect:hover {
 }
 
 .tooltip {
-position: absolute;
-text-align: center;
-
-pointer-events: none;
+    position: absolute;
+    text-align: center;
+    background-color: lavender;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
 }
