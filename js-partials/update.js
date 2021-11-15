@@ -24,8 +24,8 @@ function updateChart(continent, scales) {
     var mousemove = function (d) {
         tooltip
             .html(`Exact value: ${d.target.__data__.value}`)
-            .style('left', d3.pointer(this)[0] + 70 + 'px')
-            .style('top', d3.pointer(this)[1] + 'px');
+            .style('left', d3.pointer(event, this)[0] + 70 + 'px')
+            .style('top', d3.pointer(event, this)[1] + 60 + 'px');
     };
     const mouseleave = function (d) {
         tooltip.style("opacity", 0);
