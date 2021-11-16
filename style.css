@@ -1,5 +1,6 @@
 body {
     font-family: Helvetica, sans-serif;
+    background-color: lavenderblush;
 }
 
 h1 {
@@ -24,8 +25,8 @@ input {
 }
 
 rect {
-    fill: darkcyan;
-    fill-opacity: 0.8;
+    fill: indigo;
+    fill-opacity: 0.7;
 }
 
 rect:hover {
