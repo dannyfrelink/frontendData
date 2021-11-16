@@ -2,8 +2,25 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-form {
-    margin: 0;
+h1 {
+    margin-top: 1em;
+    margin-left: 120px;
+}
+
+form, p {
+    margin: 0 0 0 120px;
+}
+
+p {
+    font-style: italic;
+}
+
+label:not(:first-of-type) {
+    margin-left: 0.2em;
+}
+
+input {
+    margin-left: 0;
 }
 
 rect {

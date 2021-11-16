@@ -21,13 +21,13 @@ function updateChart(continent, scales) {
     const mouseover = function () {
         tooltip.style('opacity', 1);
     };
-    var mousemove = function (d) {
+    const mousemove = function (d) {
         tooltip
-            .html(`Exact value: ${d.target.__data__.value}`)
+            .html(`${d.target.__data__.currency}: ${d.target.__data__.value}`)
             .style('left', d3.pointer(event, this)[0] + 55 + 'px')
             .style('top', d3.pointer(event, this)[1] + 55 + 'px');
     };
-    const mouseleave = function (d) {
+    const mouseleave = function () {
         tooltip.style("opacity", 0);
     };
 

@@ -1,7 +1,7 @@
 // Creating D3 attributes
 const margin = { top: 40, right: 20, bottom: 20, left: 120 };
 const height = 750 - margin.top - margin.bottom;
-const width = 1000 - margin.left - margin.right;
+const width = 1500 - margin.left - margin.right;
 
 // Creating SVG element with attributes
 const svg = d3.select('body').append('svg')
