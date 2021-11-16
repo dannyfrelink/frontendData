@@ -1,5 +1,5 @@
 // Sort API per continent
-const filterContinents = (data, continent) => {
+function filterContinents(data, continent) {
     return Object.keys(data.rates).map(key => {
         if (continent.has(key) && key !== 'EUR') {
             return { currency: key, value: data.rates[key] };
@@ -8,7 +8,7 @@ const filterContinents = (data, continent) => {
 }
 
 function cleanUpData(data, countries) {
-    const sortCurrencies = continent => {
+    function sortCurrencies(continent) {
         return countries
             .filter(country => country.Continent === continent)
             .map(country => country.Currency.split(',').shift())
