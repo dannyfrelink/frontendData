@@ -51,8 +51,7 @@ function updateChart(continent, scales) {
         .on('mousemove', mousemove)
         .on('mouseleave', mouseleave);
 
-    // ENTER + UPDATE
-    // both old and new elements
+    // Adding height and width to my rect
     rect
         .attr('height', yScale.bandwidth())
         .attr('y', (d) => yScale(d.currency))
