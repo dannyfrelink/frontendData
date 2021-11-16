@@ -1,4 +1,4 @@
-import { width, g } from './basicVars.js';
+import { g } from './basicVars.js';
 import { createTooltip } from './tooltip.js';
 const tooltip = createTooltip();
 
