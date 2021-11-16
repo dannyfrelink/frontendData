@@ -24,8 +24,8 @@ function updateChart(continent, scales) {
     const mousemove = function (d) {
         tooltip
             .html(`${d.target.__data__.currency}: ${d.target.__data__.value}`)
-            .style('left', d3.pointer(event, this)[0] + 55 + 'px')
-            .style('top', d3.pointer(event, this)[1] + 55 + 'px');
+            .style('left', d3.pointer(event, this)[0] + 90 + 'px')
+            .style('top', d3.pointer(event, this)[1] + 130 + 'px');
     };
     const mouseleave = function () {
         tooltip.style("opacity", 0);
@@ -53,10 +53,13 @@ function updateChart(continent, scales) {
 
     // ENTER + UPDATE
     // both old and new elements
-    rect.transition()
+    rect
         .attr('height', yScale.bandwidth())
+        .attr('y', (d) => yScale(d.currency))
+        .transition()
         .attr('width', (d) => xScale(d.value))
-        .attr('y', (d) => yScale(d.currency));
+        .duration(2000)
+        .ease(d3.easeBackOut.overshoot(1.7));
 
     rect.select('title')
         .text((d) => d.currency);
