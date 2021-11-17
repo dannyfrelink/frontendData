@@ -58,8 +58,8 @@ function updateChart(continent, scales) {
         .attr('y', (d) => yScale(d.currency))
         .transition()
         .attr('width', (d) => xScale(d.value))
-        .duration(2000)
-        .ease(d3.easeBackOut.overshoot(1.7));
+        .duration(1500)
+        .ease(d3.easeCircleOut);
 
     rect.select('title')
         .text((d) => d.currency);
