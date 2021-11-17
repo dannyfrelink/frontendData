@@ -1,3 +1,4 @@
+// Create invisible tooltip
 function createTooltip() {
     var tooltip = d3
         .select("#scatter-line")

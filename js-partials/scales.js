@@ -1,6 +1,7 @@
 import { width, height, g } from './basicVars.js';
 
 function defineScales(continent) {
+    // Define the scales
     const scales = {
         xScale: d3.scaleLinear()
             .domain(continent.map(d => d.value))
@@ -12,6 +13,7 @@ function defineScales(continent) {
             .paddingInner(0.1),
     };
 
+    // Define the axis
     const axis = {
         xAxis: d3.axisTop()
             .scale(scales.xScale),
@@ -24,6 +26,7 @@ function defineScales(continent) {
             .attr('class', 'y axis')
     }
 
+    // Return content of both variables
     return {
         ...scales,
         ...axis

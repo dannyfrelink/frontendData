@@ -7,7 +7,9 @@ function filterContinents(data, continent) {
     });
 }
 
+// Clean dataset
 function cleanUpData(data, countries) {
+    // Sort CDN package per continent
     function sortCurrencies(continent) {
         return countries
             .filter(country => country.Continent === continent)
@@ -15,6 +17,7 @@ function cleanUpData(data, countries) {
             .reduce((j, k) => j.add(k), new Set());
     }
 
+    // Split CDN package into seperate variables
     const europeanCurrencies = sortCurrencies('Europe');
     const southAmericanCurrencies = sortCurrencies('South America');
     const northAmericanCurrencies = sortCurrencies('North America');
@@ -22,6 +25,7 @@ function cleanUpData(data, countries) {
     const asianCurrencies = sortCurrencies('Asia');
     const oceanianCurrencies = sortCurrencies('Oceania');
 
+    // Return data from API per continent (without undefined)
     return {
         'EU': filterContinents(data, europeanCurrencies).filter(d => !!d),
         'SA': filterContinents(data, southAmericanCurrencies).filter(d => !!d),

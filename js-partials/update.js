@@ -18,6 +18,7 @@ function updateChart(continent, scales) {
         .transition()
         .call(yAxis);
 
+    // Hover functions
     const mouseover = function () {
         tooltip.style('opacity', 1);
     };
@@ -51,7 +52,7 @@ function updateChart(continent, scales) {
         .on('mousemove', mousemove)
         .on('mouseleave', mouseleave);
 
-    // Adding height and width to my rect
+    // Adding height, width and title to my rect
     rect
         .attr('height', yScale.bandwidth())
         .attr('y', (d) => yScale(d.currency))
