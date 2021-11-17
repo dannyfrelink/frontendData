@@ -3,11 +3,11 @@ Welcome to the Readme for my repository for Frontend-Data. You can find alle the
 
 ## 📋 Table of Contents
 
-* [Concept](https://github.com/dannyfrelink/frontendData#concept)
-* [Process (Wiki)](https://github.com/dannyfrelink/frontendData#wiki)
-* [Wishlist](https://github.com/dannyfrelink/frontendData#wishlist)
-* [Installation](https://github.com/dannyfrelink/frontendData#installation)
-* [License](https://github.com/dannyfrelink/frontendData#license)
+* [Concept](https://github.com/dannyfrelink/frontendData#-concept)
+* [Process (Wiki)](https://github.com/dannyfrelink/frontendData#-wiki)
+* [Wishlist](https://github.com/dannyfrelink/frontendData#-wishlist)
+* [Installation](https://github.com/dannyfrelink/frontendData#-installation)
+* [License](https://github.com/dannyfrelink/frontendData#-license)
 
 ## 💡 Concept
 
