@@ -23,7 +23,7 @@ You can find all the progression of my work documented in my [Wiki](https://gith
 
 ## 📝 Wishlist
 
-As described in [Concept][https://github.com/dannyfrelink/frontendData#concept], I was planning on experimenting with different types of charts. Sadly, because of some difficulties, I wasn't able to try a lot of things and had to settle for a bar chart. These are things I wish I'd had more time for to try and make something to really be proud of.
+As described in [Concept](https://github.com/dannyfrelink/frontendData#concept), I was planning on experimenting with different types of charts. Sadly, because of some difficulties, I wasn't able to try a lot of things and had to settle for a bar chart. These are things I wish I'd had more time for to try and make something to really be proud of.
 
 ## 🔧 Installation
 
