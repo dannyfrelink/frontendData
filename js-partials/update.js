@@ -2,6 +2,20 @@ import { g } from './basicVars.js';
 import { createTooltip } from './tooltip.js';
 const tooltip = createTooltip();
 
+// Hover functions
+const mouseover = function () {
+    tooltip.style('opacity', 1);
+};
+const mousemove = function (d) {
+    tooltip
+        .html(`${d.target.__data__.currency}: ${d.target.__data__.value}`)
+        .style('left', d3.pointer(event, this)[0] + 90 + 'px')
+        .style('top', d3.pointer(event, this)[1] + 130 + 'px');
+};
+const mouseleave = function () {
+    tooltip.style("opacity", 0);
+};
+
 function updateChart(continent, scales) {
     const { xScale, yScale, g_xAxis, g_yAxis, xAxis, yAxis } = scales;
     // Update the scales
@@ -22,20 +36,6 @@ function updateChart(continent, scales) {
         .transition()
         .duration(700)
         .style('opacity', 1);
-
-    // Hover functions
-    const mouseover = function () {
-        tooltip.style('opacity', 1);
-    };
-    const mousemove = function (d) {
-        tooltip
-            .html(`${d.target.__data__.currency}: ${d.target.__data__.value}`)
-            .style('left', d3.pointer(event, this)[0] + 90 + 'px')
-            .style('top', d3.pointer(event, this)[1] + 130 + 'px');
-    };
-    const mouseleave = function () {
-        tooltip.style("opacity", 0);
-    };
 
     // Join the data with rectangle elements
     const rect = g.selectAll('rect')
