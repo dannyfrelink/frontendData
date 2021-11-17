@@ -15,13 +15,13 @@ function updateChart(continent, scales) {
         .call(xAxis)
         .transition()
         .duration(700)
-        .style('opacity', 1)
+        .style('opacity', 1);
 
     g_yAxis
         .call(yAxis)
         .transition()
         .duration(700)
-        .style('opacity', 1)
+        .style('opacity', 1);
 
     // Hover functions
     const mouseover = function () {

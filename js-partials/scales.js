@@ -26,13 +26,13 @@ function defineScales(continent) {
         g_yAxis: g.append('g')
             .style('opacity', 0)
             .attr('class', 'y axis')
-    }
+    };
 
     // Return content of both variables
     return {
         ...scales,
         ...axis
-    }
+    };
 }
 
 export { defineScales }
