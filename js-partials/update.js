@@ -12,11 +12,16 @@ function updateChart(continent, scales) {
 
     // Render the axis
     g_xAxis
+        .call(xAxis)
         .transition()
-        .call(xAxis);
+        .duration(700)
+        .style('opacity', 1)
+
     g_yAxis
+        .call(yAxis)
         .transition()
-        .call(yAxis);
+        .duration(700)
+        .style('opacity', 1)
 
     // Hover functions
     const mouseover = function () {

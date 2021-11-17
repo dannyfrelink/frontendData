@@ -18,11 +18,13 @@ function defineScales(continent) {
         xAxis: d3.axisTop()
             .scale(scales.xScale),
         g_xAxis: g.append('g')
+            .style('opacity', 0)
             .attr('class', 'x axis'),
 
         yAxis: d3.axisLeft()
             .scale(scales.yScale),
         g_yAxis: g.append('g')
+            .style('opacity', 0)
             .attr('class', 'y axis')
     }
 
