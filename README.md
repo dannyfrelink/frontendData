@@ -15,7 +15,7 @@ I've filtered out all currencies with it's value compared to €1,- and separate
 
 I started with the intention of creating an unique kind of visualisation, but it was more difficult than I anticipated. Because of the different kind of dataset I was using for my visualisation, it was hard to find a way to use D3 on my work. Eventually I settled for a simple bar chart with the option to change the chart for six continents. 
 
- ![Eindproduct](https://github.com/dannyfrelink/frontendData/blob/main/images/eindproduct.png)
+![Eindproduct](https://github.com/dannyfrelink/frontendData/blob/main/images/eindproduct.png)
 
 ## ⚙️ Process (Wiki)
 
