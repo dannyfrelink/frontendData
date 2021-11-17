@@ -24,6 +24,10 @@ input {
     margin-left: 0;
 }
 
+.axis {
+    font-style: italic;
+}
+
 rect {
     fill: indigo;
     fill-opacity: 0.7;
